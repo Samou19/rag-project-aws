@@ -1,8 +1,13 @@
 from opensearchpy import OpenSearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 import boto3
+import os
+from dotenv import load_dotenv
 
-region = "eu-west-3"
+load_dotenv()
+
+host = os.getenv("OPENSEARCH_HOST")
+region = os.getenv("AWS_REGION")
 service = "es"
 
 credentials = boto3.Session().get_credentials()
@@ -17,7 +22,7 @@ awsauth = AWS4Auth(
 
 client = OpenSearch(
     hosts=[{
-        "host": "search-rag-opensearch-bppgxgm5gtv5dbnk3vh5yh3h5u.eu-west-3.es.amazonaws.com",
+        "host": host,
         "port": 443
     }],
     http_auth=awsauth,

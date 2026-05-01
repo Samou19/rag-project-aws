@@ -3,6 +3,9 @@ import json
 from opensearchpy import OpenSearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # =========================
 # CONFIG
