@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+streamlit
+requests
+boto3
+opensearch-py
+requests-aws4auth
