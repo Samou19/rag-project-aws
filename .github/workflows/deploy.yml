@@ -27,6 +27,10 @@ jobs:
             git pull origin main
 
             source venv/bin/activate
+            
+            export OPENSEARCH_HOST=${{ secrets.OPENSEARCH_HOST }}
+            export AWS_REGION=${{ secrets.AWS_REGION }}
+            
             pip install -r requirements.txt
 
             # kill anciens process
