@@ -27,7 +27,7 @@ jobs:
             git pull origin main
 
             source venv/bin/activate
-            
+
             export OPENSEARCH_HOST=${{ secrets.OPENSEARCH_HOST }}
             export AWS_REGION=${{ secrets.AWS_REGION }}
             
@@ -43,4 +43,5 @@ jobs:
             # relancer Streamlit
             nohup streamlit run ui/streamlit_app.py --server.port 8501 &
 
+          exit
           EOF
