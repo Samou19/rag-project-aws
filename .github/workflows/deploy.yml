@@ -38,10 +38,10 @@ jobs:
             pkill -f streamlit || true
 
             # relancer API
-            nohup python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 &
+            nohup python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 > uvicorn.log 2>&1 < /dev/null & disown &
 
             # relancer Streamlit
-            nohup streamlit run ui/streamlit_app.py --server.port 8501 &
+            nohup streamlit run ui/streamlit_app.py --server.port 8501 > streamlit.log 2>&1 < /dev/null & disown &
 
             exit
           EOF
