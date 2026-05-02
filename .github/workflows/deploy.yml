@@ -43,5 +43,5 @@ jobs:
             # relancer Streamlit
             nohup streamlit run ui/streamlit_app.py --server.port 8501 &
 
-          exit
+            exit
           EOF
