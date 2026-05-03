@@ -23,25 +23,22 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-            cd rag-project-aws
+            set -e
+
+            cd ~/rag-project-aws
+
+            echo "📥 Pull latest code"
             git pull origin main
 
+            echo "🐍 Activate venv"
             source venv/bin/activate
 
-            export OPENSEARCH_HOST=${{ secrets.OPENSEARCH_HOST }}
-            export AWS_REGION=${{ secrets.AWS_REGION }}
-            
+            echo "📦 Install dependencies"
             pip install -r requirements.txt
 
-            # kill anciens process
-            pkill -f uvicorn || true
-            pkill -f streamlit || true
+            echo "🔁 Restart services"
+            sudo systemctl restart rag-api
+            sudo systemctl restart rag-ui
 
-            # relancer API
-            nohup python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 > uvicorn.log 2>&1 < /dev/null & disown &
-
-            # relancer Streamlit
-            nohup streamlit run ui/streamlit_app.py --server.port 8501 > streamlit.log 2>&1 < /dev/null & disown &
-
-            exit
+            echo "✅ Deployment finished"
           EOF
