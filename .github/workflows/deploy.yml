@@ -1,4 +1,4 @@
-name: Deploy to EC2
+name: Deploy to EC2 aws
 
 on:
   push:
@@ -39,5 +39,5 @@ jobs:
             echo "🧹 Clean unused images"
             docker system prune -f
 
-            echo "✅ Deployment finished"
+            echo "✅ Deployment finished MAJ"
           EOF

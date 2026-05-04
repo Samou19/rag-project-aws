@@ -24,11 +24,11 @@
     ]
   },
   "response": {
-    "0": "Le KYC (Know Your Customer) est un processus utilis\u00e9 par les institutions financi\u00e8res pour v\u00e9rifier l'identit\u00e9 de leurs clients.",
-    "1": "Le KYC comprend la v\u00e9rification d'identit\u00e9, la collecte de documents officiels et l'analyse du risque client.",
-    "2": "Une transaction est consid\u00e9r\u00e9e comme suspecte si le montant est sup\u00e9rieur \u00e0 5000\u20ac, le pays est diff\u00e9rent de celui du client, ou s'il y a plus de 5 transactions en 24 heures.",
-    "3": "Bloquer la transaction et notifier conformit\u00e9.",
-    "4": "La conformit\u00e9 bancaire comprend l'AML, le KYC et la surveillance des transactions."
+    "0": "Le KYC (Know Your Customer) est un processus utilis\u00e9 par les institutions financi\u00e8res pour v\u00e9rifier l'identit\u00e9 de leurs clients. Il comprend la v\u00e9rification d'identit\u00e9, la collecte de documents officiels et l'analyse du risque client. L'objectif du KYC est de pr\u00e9venir le blanchiment d'argent et d'\u00e9viter la fraude.",
+    "1": "Le KYC comprend :\n- la v\u00e9rification d'identit\u00e9\n- la collecte de documents officiels\n- l'analyse du risque client",
+    "2": "Une transaction est consid\u00e9r\u00e9e comme suspecte si :\n\n1. Le montant est sup\u00e9rieur \u00e0 5000\u20ac.\n2. Le pays de la transaction est diff\u00e9rent du pays du client.\n3. Il y a plus de 5 transactions en 24 heures.\n\nCes crit\u00e8res sont d\u00e9finis dans la \"Proc\u00e9dure de d\u00e9tection des transactions frauduleuses\" du contexte.",
+    "3": "En cas de fraude, les actions suivantes sont prises :\n\n1. Bloquer la transaction\n2. Notifier le d\u00e9partement de conformit\u00e9\n3. V\u00e9rifier le client\n\nCes actions sont d\u00e9finies dans la proc\u00e9dure de d\u00e9tection des transactions frauduleuses.",
+    "4": "La conformit\u00e9 bancaire comprend :\n\n- AML (anti-blanchiment)\n- KYC (Know Your Customer)\n- Surveillance des transactions\n\nCes \u00e9l\u00e9ments sont utilis\u00e9s pour respecter les lois et r\u00e9glementations financi\u00e8res, pr\u00e9venir le blanchiment d'argent et \u00e9viter la fraude."
   },
   "reference": {
     "0": "Le KYC est un processus permettant de v\u00e9rifier l'identit\u00e9 des clients, incluant la collecte de documents et l'analyse du risque.",
@@ -45,11 +45,11 @@
     "4": 1.0
   },
   "answer_relevancy": {
-    "0": 0.7125974737326429,
-    "1": 0.7209489270383633,
-    "2": NaN,
-    "3": 0.3929456095503944,
-    "4": 0.603037923399661
+    "0": 0.703286707522596,
+    "1": NaN,
+    "2": 0.6382300261137527,
+    "3": NaN,
+    "4": NaN
   },
   "context_precision": {
     "0": 0.9999999999,
