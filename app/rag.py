@@ -70,47 +70,61 @@ def get_embedding(text):
 # =========================
 # SEARCH (vector + fallback)
 # =========================
-def search_docs(query):
+def rerank(query, docs):
+    return sorted(
+        docs,
+        key=lambda d: (
+            sum(word in d.lower() for word in query.lower().split()),
+            -len(d)
+        ),
+        reverse=True
+    )
+
+def search_docs(query, k=2):
 
     query_vector = get_embedding(query)
 
-    if query_vector is None:
-        return ""
-
-    try:
-        # 🔥 recherche vectorielle
-        search_query = {
-            "size": 3,
-            "query": {
-                "knn": {
-                    "embedding": {
-                        "vector": query_vector,
-                        "k": 3
+    search_query = {
+        "size": k,
+        "query": {
+            "bool": {
+                "should": [
+                    {
+                        "knn": {
+                            "embedding": {
+                                "vector": query_vector,
+                                "k": k
+                            }
+                        }
+                    },
+                    {
+                        "match": {
+                            "text": {
+                                "query": query,
+                                "boost": 0.3
+                            }
+                        }
                     }
-                }
+                ]
             }
         }
+    }
 
-        response = client.search(index="rag-index", body=search_query)
+    response = client.search(index="rag-index", body=search_query)
+    hits = response["hits"]["hits"]
 
-    except Exception as e:
-        print("⚠️ KNN failed → fallback BM25:", e)
+    docs = [hit["_source"]["text"] for hit in hits]
 
-        # 🔁 fallback texte classique
-        search_query = {
-            "size": 3,
-            "query": {
-                "match": {
-                    "text": query
-                }
-            }
-        }
+    # 🔥 filtrage sémantique
+    docs = [
+        d for d in docs
+        if any(word in d.lower() for word in query.lower().split())
+    ]
 
-        response = client.search(index="rag-index", body=search_query)
+    # 🔥 reranking
+    docs = rerank(query, docs)
 
-    results = [hit["_source"]["text"] for hit in response["hits"]["hits"]]
-
-    return "\n".join(results)
+    return "\n\n".join(docs[:2])
 
 
 # =========================
@@ -127,15 +141,24 @@ def generate_answer(question, context):
                         "role": "user",
                         "content": [
                             {
-                                "text": f"""
-Réponds à la question avec le contexte.
-Si tu ne sais pas, dis "Je ne sais pas".
+                                "text":  f"""
+Tu es un assistant expert en conformité bancaire.
+
+Réponds uniquement avec les informations du contexte.
+
+Instructions :
+- Réponse claire et concise
+- Appuie ta réponse sur les éléments du contexte
+- N'invente rien
+- Si l'information est absente → "Je ne sais pas"
 
 Contexte:
 {context}
 
 Question:
 {question}
+
+Réponse:
 """
                             }
                         ]

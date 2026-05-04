@@ -1,0 +1,68 @@
+{
+  "user_input": {
+    "0": "Qu'est-ce que le KYC ?",
+    "1": "Que comprend le KYC ?",
+    "2": "Quand une transaction est-elle consid\u00e9r\u00e9e comme suspecte ?",
+    "3": "Quelles actions sont prises en cas de fraude ?",
+    "4": "Que comprend la conformit\u00e9 bancaire ?"
+  },
+  "retrieved_contexts": {
+    "0": [
+      "KYC Policy\r\n\r\nLe KYC (Know Your Customer) est un processus utilis\u00e9 par les institutions financi\u00e8res pour v\u00e9rifier l'identit\u00e9 de leurs clients.\r\n\r\nIl comprend :\r\n- v\u00e9rification d'identit\u00e9\r\n- collecte de documents officiels\r\n- analyse du risque client\r\n\r\nObjectif :\r\n- pr\u00e9venir le blanchiment d'argent\r\n- \u00e9viter la fraude\n\nCompliance bancaire\r\n\r\nLa conformit\u00e9 consiste \u00e0 respecter les lois et r\u00e9glementations financi\u00e8res.\r\n\r\nElle inclut :\r\n- AML (anti-blanchiment)\r\n- KYC\r\n- surveillance des transactions"
+    ],
+    "1": [
+      "KYC Policy\r\n\r\nLe KYC (Know Your Customer) est un processus utilis\u00e9 par les institutions financi\u00e8res pour v\u00e9rifier l'identit\u00e9 de leurs clients.\r\n\r\nIl comprend :\r\n- v\u00e9rification d'identit\u00e9\r\n- collecte de documents officiels\r\n- analyse du risque client\r\n\r\nObjectif :\r\n- pr\u00e9venir le blanchiment d'argent\r\n- \u00e9viter la fraude\n\nCompliance bancaire\r\n\r\nLa conformit\u00e9 consiste \u00e0 respecter les lois et r\u00e9glementations financi\u00e8res.\r\n\r\nElle inclut :\r\n- AML (anti-blanchiment)\r\n- KYC\r\n- surveillance des transactions"
+    ],
+    "2": [
+      "Fraud Policy Proc\u00e9dure de d\u00e9tection des transactions frauduleuses 1. Transaction suspecte si : - Montant > 5000\u20ac - Pays diff\u00e9rent du client - Plus de 5 transactions en 24h 2. Actions : - Bloquer la transaction - Notifier conformit\u00e9 - V\u00e9rifier client\n\nCompliance bancaire\r\n\r\nLa conformit\u00e9 consiste \u00e0 respecter les lois et r\u00e9glementations financi\u00e8res.\r\n\r\nElle inclut :\r\n- AML (anti-blanchiment)\r\n- KYC\r\n- surveillance des transactions"
+    ],
+    "3": [
+      "ez vos prospects\r\nL'objectif \u00e9tant de vendre votre solution, il faut identifier \u00e0 quel(s) probl\u00e8me(s) vous r\u00e9pondez. Ensuite, il faut vous demander quelles sont les personnes susceptibles de rencontrer ce probl\u00e8me.\r\n\n\nFraud Policy Proc\u00e9dure de d\u00e9tection des transactions frauduleuses 1. Transaction suspecte si : - Montant > 5000\u20ac - Pays diff\u00e9rent du client - Plus de 5 transactions en 24h 2. Actions : - Bloquer la transaction - Notifier conformit\u00e9 - V\u00e9rifier client"
+    ],
+    "4": [
+      "Compliance bancaire\r\n\r\nLa conformit\u00e9 consiste \u00e0 respecter les lois et r\u00e9glementations financi\u00e8res.\r\n\r\nElle inclut :\r\n- AML (anti-blanchiment)\r\n- KYC\r\n- surveillance des transactions\n\nKYC Policy\r\n\r\nLe KYC (Know Your Customer) est un processus utilis\u00e9 par les institutions financi\u00e8res pour v\u00e9rifier l'identit\u00e9 de leurs clients.\r\n\r\nIl comprend :\r\n- v\u00e9rification d'identit\u00e9\r\n- collecte de documents officiels\r\n- analyse du risque client\r\n\r\nObjectif :\r\n- pr\u00e9venir le blanchiment d'argent\r\n- \u00e9viter la fraude"
+    ]
+  },
+  "response": {
+    "0": "Le KYC (Know Your Customer) est un processus utilis\u00e9 par les institutions financi\u00e8res pour v\u00e9rifier l'identit\u00e9 de leurs clients.",
+    "1": "Le KYC comprend la v\u00e9rification d'identit\u00e9, la collecte de documents officiels et l'analyse du risque client.",
+    "2": "Une transaction est consid\u00e9r\u00e9e comme suspecte si le montant est sup\u00e9rieur \u00e0 5000\u20ac, le pays est diff\u00e9rent de celui du client, ou s'il y a plus de 5 transactions en 24 heures.",
+    "3": "Bloquer la transaction et notifier conformit\u00e9.",
+    "4": "La conformit\u00e9 bancaire comprend l'AML, le KYC et la surveillance des transactions."
+  },
+  "reference": {
+    "0": "Le KYC est un processus permettant de v\u00e9rifier l'identit\u00e9 des clients, incluant la collecte de documents et l'analyse du risque.",
+    "1": "Le KYC comprend la v\u00e9rification d'identit\u00e9, la collecte de documents et l'analyse du risque client.",
+    "2": "Une transaction est suspecte si le montant d\u00e9passe 5000\u20ac, si le pays est diff\u00e9rent ou s'il y a plus de 5 transactions en 24h.",
+    "3": "Les actions incluent le blocage de la transaction, la notification de la conformit\u00e9 et la v\u00e9rification du client.",
+    "4": "La conformit\u00e9 bancaire inclut l'AML, le KYC et la surveillance des transactions."
+  },
+  "faithfulness": {
+    "0": 1.0,
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0
+  },
+  "answer_relevancy": {
+    "0": 0.7125974737326429,
+    "1": 0.7209489270383633,
+    "2": NaN,
+    "3": 0.3929456095503944,
+    "4": 0.603037923399661
+  },
+  "context_precision": {
+    "0": 0.9999999999,
+    "1": 0.9999999999,
+    "2": 0.9999999999,
+    "3": 0.9999999999,
+    "4": 0.9999999999
+  },
+  "context_recall": {
+    "0": 1.0,
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0
+  }
+}

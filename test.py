@@ -1,6 +1,3 @@
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-print (os.getenv("OPENSEARCH_HOST"))
+from app.rag import search_docs, generate_answer
+docs = search_docs("KYC")
+print(docs)
