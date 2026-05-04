@@ -1,21 +1,43 @@
-- name: Deploy to EC2
-  run: |
-    ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-      set -e
+name: Deploy to EC2
 
-      cd ~/rag-project-aws
+on:
+  push:
+    branches:
+      - main
 
-      echo "📥 Pull latest code"
-      git pull origin main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-      echo "🛑 Stop old containers"
-      docker compose down
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      echo "🚀 Build & start containers"
-      docker compose up -d --build
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      echo "🧹 Clean unused images"
-      docker system prune -f
+      - name: Deploy to EC2
+        run: |
+          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            set -e
 
-      echo "✅ Deployment finished"
-    EOF
+            cd ~/rag-project-aws
+
+            echo "📥 Pull latest code"
+            git pull origin main
+
+            echo "🛑 Stop old containers"
+            docker compose down
+
+            echo "🚀 Build & start containers"
+            docker compose up -d --build
+
+            echo "🧹 Clean unused images"
+            docker system prune -f
+
+            echo "✅ Deployment finished"
+          EOF
