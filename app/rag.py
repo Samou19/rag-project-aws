@@ -18,7 +18,12 @@ host = os.getenv("OPENSEARCH_HOST")
 # =========================
 # AUTH AWS
 # =========================
-credentials = boto3.Session().get_credentials()
+session = boto3.Session()
+credentials = session.get_credentials()
+
+if credentials is None:
+    raise ValueError("AWS credentials not found")
+
 awsauth = AWS4Auth(
     credentials.access_key,
     credentials.secret_key,
