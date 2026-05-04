@@ -33,7 +33,7 @@ jobs:
             echo "🛑 Stop old containers"
             docker compose down
 
-            echo "🚀 Build & start containers"
+            echo "🚀 Build & start containers MAJ"
             docker compose up -d --build
 
             echo "🧹 Clean unused images"
